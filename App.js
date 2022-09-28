@@ -3,23 +3,55 @@ import Constants from 'expo-constants';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function App() {
+
+export default function Main() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <View style = {styles.header}>
-      <View style = {styles.conjunto}>
-          <Image style={styles.userimg} source = {require('C:/Users/camil/Documents/Dispositivos moveis/Unidade1/EmailLayout/IntegrantesUra/Camillo.jpg')}></Image>
-          <View style={styles.textoseicone}>
-          <Text> Nome </Text>
-          <Text> Titulo </Text>
-          <Text> Assunto </Text>
-          <View style = {styles.icones}>
-          <FontAwesome5 name = "star" size = {14} color = "gray" />
+      <View style={styles.searchbar}>
+      </View>
+      <View style={styles.emails}>
+        <Image style={styles.userimg} source={require('C:/Users/camil/Documents/Dispositivos moveis/Unidade1/EmailLayout/IntegrantesUra/Camillo.jpg')}></Image>
+        
+        <View style={{flex:1}}>
+          <View style={styles.EmailEsquerda}>
+            <View style={styles.textos}>
+              <Text> Nome </Text>
+              <Text> Titulo </Text>
+            </View>
+            <View style={{paddingRight:8}}>
+              <Text>2:08PM</Text>
+            </View>
           </View>
+          <View style={styles.EmailDireita}>
+              <Text> Assunto </Text>
+              <FontAwesome5 name="star" size={14} color="gray" />
           </View>        
+        </View>
+
       </View>
+      <View style={styles.emails}>
+        <Image style={styles.userimg} source={require('C:/Users/camil/Documents/Dispositivos moveis/Unidade1/EmailLayout/IntegrantesUra/Camillo.jpg')}></Image>
+        
+        <View style={{flex:1}}> 
+          <View style={styles.EmailCima}>
+            <View style={styles.textos}>
+              <Text> Nome </Text>
+              <Text> Titulo </Text>
+            </View>
+            <View style={{paddingRight:8}}>
+              <Text>2:08PM</Text>
+            </View>
+          </View>
+          <View style={styles.EmailBaixo}>
+              <Text
+              > Assunto </Text>
+              <FontAwesome5 name="star" size={18} color="gray" />
+          </View>        
+        </View>
+
       </View>
+
     </View>
   );
 }
@@ -28,28 +60,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    backgroundColor: 'red',
   },
-  header:{
-    height: 80,
-    backgroundColor: 'pink'
+  searchbar: {
+    height: 70,
+    backgroundColor: 'pink',
   },
-  conjunto:{
-    height:90,
-    padding:10,
+  emails: {
+    flexDirection: "row",
+    paddingBottom:16,
+    borderBottomColor: "#ccc",
+    borderBottomWidth:1,
+    marginBottom:8
+  },
+  EmailCima:{
+    //backgroundColor: 'blue',
     flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'green'
+    justifyContent:"space-between"
   },
   userimg: {
     height: 60,
     width: 60,
-    borderRadius: 25,
+    borderRadius: 30,
+    margin:4
   },
-  textoseicone: {
-    marginLeft: 5,
+  textos: {
     justifyContent: 'space-between',
   },
+  EmailBaixo: {
+    // height: 90,
+    // width: 90,
+    //backgroundColor: 'yellow',
+    flexDirection:"row",
+    justifyContent:"space-between",
+    paddingRight:8
+  }
 
-  
 });
